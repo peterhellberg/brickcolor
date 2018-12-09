@@ -60,7 +60,7 @@ func main() {
 		variableNames = append(variableNames, vn)
 		byNumber = append(byNumber, [2]string{number, vn})
 
-		src += fmt.Sprintf("%s = BrickColor{Name: %q, Number: %s, Hex: %q, RGBA: color.RGBA{%s, 255}}\n", vn, name, number, hex, rgb)
+		src += fmt.Sprintf("%s = BrickColor{Hex: %q, Number: %s, RGBA: color.RGBA{%s, 255}, Name: %q}\n", vn, hex, number, rgb, name)
 	}
 
 	src += ")\n\n"
