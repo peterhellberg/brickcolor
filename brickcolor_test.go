@@ -2,6 +2,27 @@ package brickcolor
 
 import "testing"
 
+func TestRandom(t *testing.T) {
+	bc := Random()
+
+	if bc.Name == "" {
+		t.Fatalf("empty color name")
+	}
+}
+
+func TestNumber(t *testing.T) {
+	for n, want := range map[int]string{
+		1020: "Lime green",
+		1032: "Hot pink",
+	} {
+		bc := Number(n)
+
+		if got := bc.Name; got != want {
+			t.Fatalf("bc.Name = %q, want %q", got, want)
+		}
+	}
+}
+
 func TestAll(t *testing.T) {
 	if got, want := len(All), 208; got < want {
 		t.Fatalf("Only found %d brick colors, want at least %d", got, want)
