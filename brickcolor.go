@@ -15,14 +15,9 @@ type BrickColor struct {
 	Hex    string
 }
 
-// All returns a slice of all BrickColor Codes
-func All() []BrickColor {
-	return all
-}
-
 // Random BrickColor (remember to seed the random number generator using rand.Seed)
 func Random() BrickColor {
-	return all[rand.Intn(len(all))]
+	return All[rand.Intn(len(All))]
 }
 
 // Number returns a BrickColor from its numerical index.

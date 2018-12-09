@@ -65,7 +65,8 @@ func main() {
 
 	src += ")\n\n"
 
-	src += "var all = []BrickColor{\n"
+	src += "// All available BrickColors on Roblox.\n"
+	src += "var All = []BrickColor{\n"
 	src += strings.Join(variableNames, ",\n")
 	src += "}\n\n"
 
