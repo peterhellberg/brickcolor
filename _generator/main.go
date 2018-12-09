@@ -46,7 +46,7 @@ func main() {
 			continue
 		}
 
-		hex := htmlquery.SelectAttr(tds[0], "bgcolor")
+		hex := "#" + htmlquery.SelectAttr(tds[0], "bgcolor")
 		name := htmlquery.InnerText(tds[1])
 		number := htmlquery.InnerText(tds[2])
 		rgb := htmlquery.InnerText(tds[3])
