@@ -19,8 +19,8 @@ func TestBrickColors(t *testing.T) {
 		number int
 		hex    string
 	}{
-		{White, "White", 1, "F2F3F3"},
-		{MediumRoyalBlue, "Medium Royal blue", 213, "6C81B7"},
+		{White, "White", 1, "#F2F3F3"},
+		{MediumRoyalBlue, "Medium Royal blue", 213, "#6C81B7"},
 	} {
 		if got, want := tc.bc.Name, tc.name; got != want {
 			t.Fatalf("tc.bc.Name = %q, want %q", got, want)
