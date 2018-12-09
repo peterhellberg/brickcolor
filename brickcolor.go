@@ -7,6 +7,28 @@
 
 			go get -u github.com/peterhellberg/brickcolor
 
+	Usage
+
+			package main
+
+			import (
+				"fmt"
+				"math/rand"
+
+				"github.com/peterhellberg/brickcolor"
+			)
+
+			func main() {
+				rand.Seed(123)
+
+				println(brickcolor.Random())
+				println(brickcolor.Number(1032))
+			}
+
+			func println(bc brickcolor.BrickColor) {
+				fmt.Println(bc.R, bc.G, bc.B, bc.Name)
+			}
+
 */
 package brickcolor
 

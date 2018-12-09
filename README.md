@@ -11,6 +11,37 @@ A (generated) Go package with all of the Roblox [BrickColor Codes](https://devel
 
     go get -u github.com/peterhellberg/brickcolor
 
+## Usage
+
+```go
+package main
+
+import (
+	"fmt"
+	"math/rand"
+
+	"github.com/peterhellberg/brickcolor"
+)
+
+func main() {
+	rand.Seed(123)
+
+	println(brickcolor.Random())
+	println(brickcolor.Number(1032))
+}
+
+func println(bc brickcolor.BrickColor) {
+	fmt.Println(bc.R, bc.G, bc.B, bc.Name)
+}
+```
+
+This will output:
+
+```
+104 116 172 Medium bluish violet
+255 0 191 Hot pink
+```
+
 ## Generating a new version
 
 ```bash
