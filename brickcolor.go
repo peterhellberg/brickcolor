@@ -1,0 +1,31 @@
+package brickcolor
+
+import (
+	"image/color"
+	"math/rand"
+)
+
+//go:generate go run -tags=generator _generator/main.go
+
+// BrickColor contains the color, name, number and hex value for a Roblox part color
+type BrickColor struct {
+	color.RGBA
+	Name   string
+	Number int
+	Hex    string
+}
+
+// All returns a slice of all BrickColor Codes
+func All() []BrickColor {
+	return all
+}
+
+// Random BrickColor (remember to seed the random number generator using rand.Seed)
+func Random() BrickColor {
+	return all[rand.Intn(len(all))]
+}
+
+// Number returns a BrickColor from its numerical index.
+func Number(n int) BrickColor {
+	return byNumber[n]
+}
