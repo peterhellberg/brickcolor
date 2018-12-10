@@ -1,7 +1,7 @@
 # :art: brickcolor
 
 [![Build Status](https://travis-ci.org/peterhellberg/brickcolor.svg?branch=master)](https://travis-ci.org/peterhellberg/brickcolor)
-[![Go Report Card](https://goreportcard.com/badge/github.com/peterhellberg/brickcolor)](https://goreportcard.com/report/github.com/peterhellberg/brickcolor)
+[![Go Report Card](https://goreportcard.com/badge/github.com/peterhellberg/brickcolor?style=flat)](https://goreportcard.com/report/github.com/peterhellberg/brickcolor)
 [![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/github.com/peterhellberg/brickcolor)
 [![License MIT](https://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](https://github.com/peterhellberg/brickcolor#license-mit)
 
