@@ -1,34 +1,32 @@
 /*
+Package brickcolor includes all of the Roblox BrickColor Codes as
+listed on https://developer.roblox.com/articles/BrickColor-Codes
 
-	Package brickcolor includes all of the Roblox BrickColor Codes as
-	listed on https://developer.roblox.com/articles/BrickColor-Codes
+Installation
 
-	Installation
+	go get -u github.com/peterhellberg/brickcolor
 
-			go get -u github.com/peterhellberg/brickcolor
+Usage
 
-	Usage
+	package main
 
-			package main
+	import (
+		"fmt"
+		"math/rand"
 
-			import (
-				"fmt"
-				"math/rand"
+		"github.com/peterhellberg/brickcolor"
+	)
 
-				"github.com/peterhellberg/brickcolor"
-			)
+	func main() {
+		rand.Seed(123)
 
-			func main() {
-				rand.Seed(123)
+		println(brickcolor.Random())
+		println(brickcolor.Number(1032))
+	}
 
-				println(brickcolor.Random())
-				println(brickcolor.Number(1032))
-			}
-
-			func println(bc brickcolor.BrickColor) {
-				fmt.Println(bc.R, bc.G, bc.B, bc.Name)
-			}
-
+	func println(bc brickcolor.BrickColor) {
+		fmt.Println(bc.R, bc.G, bc.B, bc.Name)
+	}
 */
 package brickcolor
 
