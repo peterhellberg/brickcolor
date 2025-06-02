@@ -30,8 +30,6 @@ Usage
 */
 package brickcolor
 
-//go:generate go run -tags=generator _generator/main.go
-
 import (
 	"image/color"
 	"math/rand"

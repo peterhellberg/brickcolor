@@ -1,10 +1,10 @@
-// +build generator
-
 package main
 
 import (
 	"fmt"
-	"io/ioutil"
+	"os"
+	"slices"
+	"strconv"
 	"strings"
 	"time"
 
@@ -20,7 +20,7 @@ func main() {
 		panic(err)
 	}
 
-	table := htmlquery.FindOne(doc, "//table[contains(@class,'table')]")
+	table := htmlquery.FindOne(doc, "//table[contains(@class,'MuiTable-root')]")
 
 	r := strings.NewReplacer(".", "", "(", "", ")", "", "/", " ", "-", " ")
 
@@ -46,19 +46,26 @@ func main() {
 			continue
 		}
 
-		hex := "#" + htmlquery.SelectAttr(tds[0], "bgcolor")
 		name := htmlquery.InnerText(tds[1])
 		number := htmlquery.InnerText(tds[2])
 		rgb := htmlquery.InnerText(tds[3])
 
 		vn := strings.Replace(strings.Title(r.Replace(name)), " ", "", -1)
 
-		if contains(variableNames, vn) {
+		if slices.Contains(variableNames, vn) {
 			vn += "2"
 		}
 
 		variableNames = append(variableNames, vn)
 		byNumber = append(byNumber, [2]string{number, vn})
+
+		hex := "#"
+
+		for parts := range strings.SplitSeq(rgb, ", ") {
+			if n, err := strconv.Atoi(parts); err == nil {
+				hex += fmt.Sprintf("%02X", n)
+			}
+		}
 
 		src += fmt.Sprintf("%s = BrickColor{Hex: %q, Number: %s, RGBA: color.RGBA{%s, 255}, Name: %q}\n", vn, hex, number, rgb, name)
 	}
@@ -81,18 +88,8 @@ func main() {
 		panic(err)
 	}
 
-	err = ioutil.WriteFile("generated.go", res, 0644)
+	err = os.WriteFile("../generated.go", res, 0644)
 	if err != nil {
 		panic(err)
 	}
-}
-
-func contains(s []string, e string) bool {
-	for _, a := range s {
-		if a == e {
-			return true
-		}
-	}
-
-	return false
 }
